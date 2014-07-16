@@ -1,0 +1,44 @@
+# This is the main configuration file of your Dancer app
+# env-related settings should go to environments/$env.yml
+# all the settings in this file will be loaded at Dancer's startup.
+
+# Your application's name
+appname: "CrowdTilt::App"
+
+# The default layout to use for your application (located in
+# views/layouts/main.tt)
+layout: "main"
+
+# when the charset is set to UTF-8 Dancer will handle for you
+# all the magic of encoding and decoding. You should not care
+# about unicode within your app when this setting is set (recommended).
+charset: "UTF-8"
+
+# template engine
+# simple: default and very basic template engine
+# template_toolkit: TT
+
+template: "simple"
+
+
+serializer: JSON
+
+# template: "template_toolkit"
+# engines:
+#   template_toolkit:
+#     start_tag: '[%'
+#     end_tag:   '%]'
+
+# For session support enable the following line and see Dancer::Session
+# session: "YAML"
+# 
+
+# twitter settings 
+# API_Version 1.1
+consumer_key 		: "AXgYdmm2NoguHuXGi0IzDg"
+
+consumer_secret : "nqollPlUjBVuQCSLIPCUyvoNlc7z27RERaceZJX3kQ"
+
+token 					: "162992694-rdp24cYfV9zecDD5FDq2XuHvNv9XZJsJBZi643hl"
+
+token_secret 		: "AC9vwEB5Hpsixzkdrl33xtdl1JSNMtO9SVlZ4eupUuU"

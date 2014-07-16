@@ -1,0 +1,67 @@
+<form id="tweet-form">
+    <input name="username" id="username" type="text" value="sarvesh_telang"/>
+		<input type="submit" value="Submit">
+</form>
+
+
+<form id="friend-form">
+    <input name="u1" id="u1" type="text" value="sarvesh_telang"/>
+		<input name="u2" id="u2" type="text" value="n_ashwini1"/>
+		<input type="submit" value="Submit">
+</form>
+
+
+<div id="tweet"></div>
+<div id="friends"></div>
+
+
+<script>
+// A $( document ).ready() block.
+$( document ).ready(function() {
+	
+		
+		// this is the id of the form
+		$("#tweet-form").submit(function() {
+			var user = $("#username").val();
+			var url = "user/" + user + "/user_timeline"; // the script where you handle the form input.
+
+			$.ajax({
+					type: "GET",
+			    url: url,
+			    success: function(data)
+			    {	
+						var html = "Recent Tweets <br/><hr/>"
+						for (var i = 0; i < data.results.length; i++) {
+							html += "<div>" + data.results[i] + "</div>";
+						}	
+						$("#tweet").html(html);
+						$("#friends").html("");
+			    }
+			});
+	    return false; // avoid to execute the actual submit of the form.
+		});
+		
+		// this is the id of the form
+		$("#friend-form").submit(function() {
+			var u1 = $("#u1").val();
+			var u2 = $("#u2").val();
+			var url = "user/followers?u1=" + u1 + "&u2=" + u2; // the script where you handle the form input.
+
+			$.ajax({
+					type: "GET",
+			    url: url,
+			    success: function(data)
+			    {	
+						var html = "Common Friends <br/><hr/>"
+						for (var i = 0; i < data.results.length; i++) {
+							html += "<div>" + data.results[i] + "</div>";
+						}	
+						$("#friends").html(html);
+						$("#tweet").html("");
+			    }
+			});
+	    return false; // avoid to execute the actual submit of the form.
+		});
+    
+});
+</script>
